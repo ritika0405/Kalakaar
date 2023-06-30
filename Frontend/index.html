@@ -23,7 +23,8 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="categories.html">Categories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.html" id="header_login">Login</a></li>
+                <li><a href="" id="header_logout">Logout</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
             </ul>
         </nav>
@@ -52,9 +53,40 @@
             searchButton.addEventListener('click', function (event) {
                 event.preventDefault();
                 const category = document.getElementById('category').value;
-                if(category!=="undefined"){
-                window.location.href = `${category}.html`;
+                if (category !== "undefined") {
+                    window.location.href = `${category}.html`;
                 }
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const loginButton = document.getElementById('header_login');
+                const logoutButton = document.getElementById('header_logout');
+
+                // Check if token exists in localStorage
+                const token = localStorage.getItem('token');
+
+                if (token) {
+                    // Token exists, show logout button and hide login button
+                    logoutButton.style.display = 'inline-block';
+                    loginButton.style.display = 'none';
+                } else {
+                    // Token does not exist, show login button and hide logout button
+                    loginButton.style.display = 'inline-block';
+                    logoutButton.style.display = 'none';
+                }
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const logoutButton = document.getElementById('header_logout');
+                logoutButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    localStorage.clear();
+                    window.location.href = "login.html";
+                });
             });
         </script>
 </body>
