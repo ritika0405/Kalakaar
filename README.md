@@ -15,7 +15,7 @@ This project is an Artist Booking Website that allows clients to book talented a
      git clone https://github.com/ritika0405/Kalakaar.git
      ```
 2.  Create a .env file in Backend directory
-    - write the following in the file
+    - Write the following in the .env file
        ```sh
       MONGO_URI="Write your MongoDB Connection URI here"
       ```
@@ -37,4 +37,4 @@ This project is an Artist Booking Website that allows clients to book talented a
      npm start
      ```
 ## Contact
-- For any inquiries or support, please contact the project maintainers at [riya.ritika1112@gmail.com].
+- For any inquiries or support, please contact the project maintainer at [riya.ritika1112@gmail.com].
