@@ -23,7 +23,8 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="categories.html">Categories</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html" id="header_login">Login</a></li>
+        <li><a href="" id="header_logout">Logout</a></li>
         <li><a href="contact_us.html">Contact Us</a></li>
       </ul>
     </nav>
@@ -47,8 +48,8 @@
       <tbody id="table-body"></tbody>
     </table>
     <!-- Modal -->
-    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog"
-      aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -227,6 +228,37 @@
           // Call the function to populate the table
           populateTable();
         });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginButton = document.getElementById('header_login');
+      const logoutButton = document.getElementById('header_logout');
+
+      // Check if token exists in localStorage
+      const token = localStorage.getItem('token');
+
+      if (token) {
+        // Token exists, show logout button and hide login button
+        logoutButton.style.display = 'inline-block';
+        loginButton.style.display = 'none';
+      } else {
+        // Token does not exist, show login button and hide logout button
+        loginButton.style.display = 'inline-block';
+        logoutButton.style.display = 'none';
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const logoutButton = document.getElementById('header_logout');
+      logoutButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        localStorage.clear();
+        window.location.href = "login.html";
+      });
     });
   </script>
 </body>

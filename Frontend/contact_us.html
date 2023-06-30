@@ -23,7 +23,8 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="categories.html">Categories</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="login.html" id="header_login">Login</a></li>
+                <li><a href="" id="header_logout">Logout</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
             </ul>
         </nav>
@@ -107,7 +108,8 @@
                     <br>
                     <footer>
                         <div class="form-check col-sm-6" style="display: flex;">
-                            <input class="checkbox" type="checkbox" id="checkbox" style="margin-bottom: 2px; margin-right: 2px;">I accept the <a href="#"
+                            <input class="checkbox" type="checkbox" id="checkbox"
+                                style="margin-bottom: 2px; margin-right: 2px;">I accept the <a href="#"
                                 class="check-link">Terms and Conditions</a>
                         </div>
                         <div class="col-sm-6">
@@ -119,17 +121,17 @@
         </div>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
 
-          // Retrieve name and email from localStorage
-          const fullname = localStorage.getItem('fullname');
-          const email = localStorage.getItem('email');
-          const artist_name = localStorage.getItem('artist_name');
-  
-          // Fill the input fields with the retrieved values
-          document.getElementById('fullname').value = fullname;
-          document.getElementById('email').value = email;
-          document.getElementById('artist_name').value = artist_name;
+            // Retrieve name and email from localStorage
+            const fullname = localStorage.getItem('fullname');
+            const email = localStorage.getItem('email');
+            const artist_name = localStorage.getItem('artist_name');
+
+            // Fill the input fields with the retrieved values
+            document.getElementById('fullname').value = fullname;
+            document.getElementById('email').value = email;
+            document.getElementById('artist_name').value = artist_name;
         });
     </script>
 
@@ -179,6 +181,37 @@
             });
         });
 
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginButton = document.getElementById('header_login');
+            const logoutButton = document.getElementById('header_logout');
+
+            // Check if token exists in localStorage
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                // Token exists, show logout button and hide login button
+                logoutButton.style.display = 'inline-block';
+                loginButton.style.display = 'none';
+            } else {
+                // Token does not exist, show login button and hide logout button
+                loginButton.style.display = 'inline-block';
+                logoutButton.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutButton = document.getElementById('header_logout');
+            logoutButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                localStorage.clear();
+                window.location.href = "login.html";
+            });
+        });
     </script>
 
 </body>
