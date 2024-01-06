@@ -97,7 +97,7 @@
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('http://localhost:5000/api/auth/login', {
+        fetch('https://taupe-scarab-ring.cyclic.app/api/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -151,7 +151,7 @@
         const email = document.getElementById('newemail').value;
         const password = document.getElementById('newpassword').value;
 
-        fetch('http://localhost:5000/api/auth/createuser', {
+        fetch('https://taupe-scarab-ring.cyclic.app/api/auth/createuser', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

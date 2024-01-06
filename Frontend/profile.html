@@ -114,7 +114,7 @@
       const token = localStorage.getItem('token');
       const userid = localStorage.getItem('userid');
 
-      fetch('http://localhost:5000/api/bookings/fetchbooking', {
+      fetch('https://taupe-scarab-ring.cyclic.app/api/bookings/fetchbooking', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -194,7 +194,7 @@
               deleteButton.textContent = "Delete";
               deleteButton.addEventListener('click', () => {
                 // Send a DELETE request to the server to delete the item
-                fetch(`http://localhost:5000/api/bookings/deletebooking/${item._id}`, {
+                fetch(`https://taupe-scarab-ring.cyclic.app/api/bookings/deletebooking/${item._id}`, {
                   method: 'DELETE',
                   headers: {
                     'Content-Type': 'application/json',
